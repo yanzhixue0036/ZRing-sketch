@@ -42,8 +42,8 @@ std::pair<double, double> qs_proc(double sketch_size, double* data, int data_num
         QSketch alg(sketch_size*z_size, register_size);
         alg.Update(data, data_num, g, 0);
         aare = alg.Count();
-        alg.Update(data, data_num, g, 0, false);
-        aare = alg.Count();
+        // alg.Update(data, data_num, g, 0, false);
+        // aare = alg.Count();
         actual = alg.Actual();
         estimated = alg.Estimated_card();
         update_time = alg.update_time;
@@ -52,8 +52,8 @@ std::pair<double, double> qs_proc(double sketch_size, double* data, int data_num
         QDyn alg(sketch_size*z_size, register_size, rand());
         alg.Update(data, data_num, g, 0);
         aare = alg.Count();
-        alg.Update(data, data_num, g, 0, false);
-        aare = alg.Count();
+        // alg.Update(data, data_num, g, 0, false);
+        // aare = alg.Count();
         actual = alg.Actual();
         estimated = alg.Estimated_card();
         update_time = alg.update_time;
@@ -108,7 +108,6 @@ int main(int argc, char* argv[]) {
     string dataset_path = "./data.txt";
     string output_file = "./ZRingset/test.npy";
     int R = 10;
-    int register_size = 8;
     int z_size = 3;
     int memory = 1 * 1024 * 8; // KB
     MethodType method = ZRing_Method;
@@ -140,7 +139,8 @@ int main(int argc, char* argv[]) {
             default: print_usage(); return 1;
         }
     }
-
+    
+    int register_size = 8;
     int size_a = pow(2, register_size);
     int sketch_size = memory / z_size / size_a;
 
@@ -186,6 +186,6 @@ int main(int argc, char* argv[]) {
         cout << "Estimation Time: " << total_esti_time / valid_count << endl;
     }
 
-    cout << "Done. Saved to: " << output_file << endl;
+    if(method == ZRing_Method) cout << "Done. Saved to: " << output_file << endl;
     return 0;
 }

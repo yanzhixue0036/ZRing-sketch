@@ -71,6 +71,11 @@ The output `.npy` file is a 2D array where each row represents one run. The colu
 | `a+4`        | Update time (seconds)           |
 | `a+5`        | Estimation time (seconds)       |
 
+To test the method `ZRing-MLP`, run:
+```bash
+python test.py
+```
+
 ---
 
 ## 📈 Example Output
@@ -84,4 +89,16 @@ After execution, you will see results like:
 All files processed. Combined results saved to ./Trainset/test.npy
 ```
 
+---
+
+## 🧩 Input Format
+
+The input dataset must be a `.txt` file where each line contains a float value (the weight of an element):
+
+```
+1.0
+2.3
+0.7
+...
+```
 
