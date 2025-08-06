@@ -126,9 +126,9 @@ int main(int argc, char* argv[]) {
     while ((opt = getopt_long(argc, argv, "m:d:r:s:g:k:", long_opts, nullptr)) != -1) {
         switch (opt) {
             case 'm':
-                if (string(optarg) == "ZRing") method = ZRing_Method;
+                if (string(optarg) == "ZRingDME") method = ZRing_Method;
                 else if (string(optarg) == "QSketch") method = QSketch_Method;
-                else if (string(optarg) == "QSketchDyn") method = QSketchDyn_Method;
+                else if (string(optarg) == "QSketchDME") method = QSketchDyn_Method;
                 else {
                     cerr << "Unknown method: " << optarg << endl;
                     return 1;
