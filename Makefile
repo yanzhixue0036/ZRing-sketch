@@ -29,6 +29,6 @@ clean:
 
 # Run rule
 run: $(TARGET)
-	./$(TARGET)
+	./$(TARGET) -m QSketchDyn -k 16
 
 .PHONY: all clean run
